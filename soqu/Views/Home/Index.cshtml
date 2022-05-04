@@ -1,0 +1,46 @@
+﻿ @model List<soqu.Models.Catagory>
+
+<section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              @foreach (var item in Model)
+              {
+                  <li data-filter=".f_@item.Id">@item.Name</li>
+              }
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container">
+            @foreach (var item in ViewBag.prod)
+            {
+              <div class="col-lg-4 col-md-6 portfolio-item f_@item.CatId">
+                <div class="portfolio-wrap">
+                  <img src="~/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>@item.Name</h4>
+                    <p>@item.Price</p>
+                  </div>
+                  <div class="portfolio-links">
+                    <a href="~/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                  </div>
+                </div>
+              </div>
+            }
+        </div>
+
+      </div>
+    </section>
